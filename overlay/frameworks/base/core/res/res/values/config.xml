@@ -414,7 +414,7 @@
     <string name="config_popUpCameraServiceComponentName" translatable="false">org.lineageos.settings/org.lineageos.settings.popupcamera.PopupCameraService</string>
 
     <!-- Whether device supports in-display fingerprint when screen is turned off -->
-    <bool name="config_supportsInDisplayFingerprintGesture">true</bool>
+    <bool name="config_supportsScreenOffInDisplayFingerprint">true</bool>
 
     <!-- Enable face auth only when swiping security view -->
     <bool name="config_faceAuthOnlyOnSecurityView">true</bool>
