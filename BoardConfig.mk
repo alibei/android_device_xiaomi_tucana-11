@@ -11,6 +11,9 @@ BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 
 DEVICE_PATH := device/xiaomi/tucana
 
+# Properties
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
