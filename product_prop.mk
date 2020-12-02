@@ -13,6 +13,11 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.adb.secure=0
 endif
 
+# Enable blurs
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.surface_flinger.supports_background_blur=1 \
+    ro.sf.blurs_are_expensive=1
+
 # Misc props
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.oem_unlock_supported=0 \
