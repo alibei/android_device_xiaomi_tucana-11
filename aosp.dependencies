@@ -1,8 +1,0 @@
-[
-  {
-    "repository": "vendor_xiaomi_raphael",
-    "target_path": "vendor/xiaomi/raphael",
-    "branch": "eleven",
-    "remote": "pixel-devices-blobs"
-  }
-]

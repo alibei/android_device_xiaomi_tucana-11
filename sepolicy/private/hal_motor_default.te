@@ -1,4 +1,0 @@
-type hal_motor_default, domain, halserverdomain;
-
-# Allow binder communication with xiaomi_settings
-binder_call(hal_motor_default, xiaomi_settings)
