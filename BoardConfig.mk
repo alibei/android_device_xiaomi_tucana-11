@@ -153,8 +153,10 @@ include device/qcom/sepolicy/SEPolicy.mk
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 
 # Power
+TARGET_OVERLAYS_POWERHAL := true
+TARGET_USES_NON_LEGACY_POWER := true
 TARGET_USES_INTERACTION_BOOST := true
-TARGET_TAP_TO_WAKE_NODE := "/dev/input/event3"
+TARGET_TAP_TO_WAKE_NODE := "/dev/input/event4"
 
 # Treble
 BOARD_VNDK_VERSION := current
