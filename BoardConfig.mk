@@ -31,6 +31,9 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a76
 
 TARGET_USES_64_BIT_BINDER := true
 
+# ANT+
+BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
+
 # Assert
 TARGET_OTA_ASSERT_DEVICE := tucana
 
