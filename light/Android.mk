@@ -16,11 +16,8 @@ LOCAL_SRC_FILES := \
 LOCAL_REQUIRED_MODULES := \
     android.hardware.light@2.0-service.tucana.rc \
     libbase \
-    libhardware \
     libhidlbase \
     libhidltransport \
-    liblog \
-    libhwbinder \
     libutils \
     android.hardware.light@2.0
 
