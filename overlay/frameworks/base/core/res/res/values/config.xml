@@ -193,6 +193,9 @@
 
     <!-- Shows the required view for in-display fingerprint -->
     <bool name="config_supportsInDisplayFingerprint">true</bool>
+    
+    <!-- Display has physical cutout -->
+    <bool name="config_physicalDisplayCutout">true</bool>
 
     <!-- Whether device ignores the RSSNR signal implementation -->
     <bool name="config_ignoreRssnrSignalLevel">true</bool>
