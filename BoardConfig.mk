@@ -7,9 +7,14 @@
 BOARD_VENDOR := xiaomi
 
 BUILD_BROKEN_DUP_RULES := true
-BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 
 DEVICE_PATH := device/xiaomi/tucana
+
+# Compile libhwui in perfomance mode
+HWUI_COMPILE_FOR_PERF := true
+
+# Use Snapdragon LLVM, if avaliable
+TARGET_USE_SDCLANG := true
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
@@ -106,6 +111,7 @@ endif
 
 # Display
 TARGET_USES_HWC2 := true
+TARGET_HAS_HDR_DISPLAY := true
 
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
@@ -119,6 +125,7 @@ BOARD_HAVE_QCOM_FM := true
 
 # FOD
 TARGET_SURFACEFLINGER_FOD_LIB := //$(DEVICE_PATH):libfod_extension.tucana
+TARGET_USES_FOD_ZPOS := true
 
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/framework_compatibility_matrix.xml
