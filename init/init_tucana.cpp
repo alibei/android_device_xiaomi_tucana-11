@@ -55,6 +55,6 @@ void vendor_load_properties()
 {
     // fingerprint
     property_override("ro.product.model", "Mi Note 10");
-    property_override("ro.build.description", "tucana_eea-user 10 QKQ1.190825.002 V11.1.1.0.QFDEUXM release-keys");
-    property_override_multi("ro.build.fingerprint", "ro.vendor.build.fingerprint","ro.bootimage.build.fingerprint", "google/coral/coral:10/QQ3A.200805.001/6578210:user/release-keys");
+    property_override("ro.build.description", "redfin-user 11 RQ1A.201205.010 6953398 release-keys");
+    property_override_multi("ro.build.fingerprint", "ro.vendor.build.fingerprint","ro.bootimage.build.fingerprint", "google/redfin/redfin:11/RQ1A.201205.010/6953398:user/release-keys");
 }
