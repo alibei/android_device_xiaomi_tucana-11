@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_tucana.mk
+    $(LOCAL_DIR)/potato_tucana.mk
