@@ -6,49 +6,43 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+# Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 PRODUCT_CHARACTERISTICS := nosdcard
+
+# Setup dalvik vm configs
+$(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/xiaomi/tucana/tucana-vendor.mk)
 
 # VNDK
-PRODUCT_TARGET_VNDK_VERSION := 29
-PRODUCT_EXTRA_VNDK_VERSIONS := 29
-
-# Boot animation
-TARGET_SCREEN_HEIGHT := 2340
-TARGET_SCREEN_WIDTH := 1080
-
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay
-
-# Properties
--include $(LOCAL_PATH)/system_prop.mk
--include $(LOCAL_PATH)/product_prop.mk
+PRODUCT_TARGET_VNDK_VERSION := 30
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
-# Device uses high-density artwork where available
+# AAPT config
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
-
-# Permissions
-PRODUCT_COPY_FILES += \
-   frameworks/native/data/etc/android.hardware.telephony.ims.xml:system/etc/permissions/android.hardware.telephony.ims.xml
 
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
-    tinymix
+    tinymix \
+    libaacwrapper \
+    vendor.qti.hardware.audiohalext@1.0
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy_engine_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/audio_policy_engine_configuration.xml \
     $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/audio_policy_configuration.xml \
-    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/audio/audio_policy_configuration.xml
+    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/audio/audio_policy_configuration.xml \
+       frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/a2dp_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/a2dp_in_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/usb_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/bluetooth_audio_policy_configuration.xml
 
 # ANT+
 PRODUCT_PACKAGES += \
@@ -56,15 +50,35 @@ PRODUCT_PACKAGES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    BluetoothQti
+    BluetoothQti \
+    vendor.qti.hardware.btconfigstore@1.0 \
+    vendor.qti.hardware.btconfigstore@2.0 \
+    libldacBT_bco
+    
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2340
+TARGET_SCREEN_WIDTH := 1080
 
 # Camera
 PRODUCT_PACKAGES += \
+    vendor.qti.hardware.camera.device@1.0 \
     Snap
-
+    
+# Configstore
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.capabilityconfigstore@1.0
+    
+# Cryptfs
+PRODUCT_PACKAGES += \
+    libcryptfs_hw \
+    vendor.qti.hardware.cryptfshw@1.0
+    
 # Device-specific settings
 PRODUCT_PACKAGES += \
     XiaomiParts
+    
+PRODUCT_COPY_FILES += \
+     $(LOCAL_PATH)/parts/privapp-permissions-parts.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-parts.xml
 
 # Display
 PRODUCT_PACKAGES += \
@@ -91,6 +105,11 @@ PRODUCT_COPY_FILES += \
 
 TARGET_HAS_FOD := true
 
+# FIXME: master: compat for libprotobuf
+# See https://android-review.googlesource.com/c/platform/prebuilts/vndk/v28/+/1109518
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full-vendorcompat
+
 # FM
 PRODUCT_PACKAGES += \
     FM2 \
@@ -107,6 +126,11 @@ PRODUCT_PACKAGES += \
     android.hidl.manager@1.0 \
     libhidltransport \
     libhwbinder
+    
+# Hotword Enrollment
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml \
+    $(LOCAL_PATH)/configs/sysconfig/hotword-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/hotword-hiddenapi-package-whitelist.xml
 
 # IFAA manager
 PRODUCT_PACKAGES += \
@@ -118,7 +142,8 @@ PRODUCT_BOOT_JARS += \
 # Init
 PRODUCT_PACKAGES += \
     init.mi_thermald.rc \
-    init.qcom.rc
+    init.qcom.rc \
+    init.safailnet.rc
 
 # Input
 PRODUCT_COPY_FILES += \
@@ -152,19 +177,43 @@ PRODUCT_PACKAGES += \
     com.gsma.services.nfc \
     NfcNci \
     SecureElement \
-    Tag
+    Tag \
+    vendor.nxp.hardware.nfc@1.0 \
+    vendor.nxp.hardware.nfc@1.1 \
+    vendor.nxp.hardware.nfc@2.0
 
-# OTA
-PRODUCT_HOST_PACKAGES += \
-    signapk
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-tucana
+    
+# overlay-remove
+PRODUCT_PACKAGES += \
+    FrameworksResTarget
+
+# Permissions
+PRODUCT_COPY_FILES += \
+   frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.telephony.ims.xml \
+   frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/handheld_core_hardware.xml
 
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.2-service.tucana
 
+# Properties
+-include $(LOCAL_PATH)/system_prop.mk
+-include $(LOCAL_PATH)/product_prop.mk
+    
 # Ril
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.4
+    
+# Sensor Configuration
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/sensors/hals.conf
+    
+# Signapk
+PRODUCT_HOST_PACKAGES += \
+    signapk
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -183,6 +232,13 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     telephony-ext
+    
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/permissions/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-qti.xml
+    
+# Thermal
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@2.0
 
 # TextClassifier
 PRODUCT_PACKAGES += \
@@ -211,32 +267,30 @@ PRODUCT_PACKAGES += \
     SystemUIResCommon \
     TelecommResCommon \
     TelephonyResCommon
-
+    
 # VNDK
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v29/arm64/arch-arm-armv8-a/shared/vndk-sp/libcutils.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libcutils-v29.so \
     prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-sp/libcutils.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libcutils-v29.so
-
+    
 # WiFi
 PRODUCT_PACKAGES += \
     TetheringConfigOverlay \
     WifiOverlay
 
 # WiFi Display
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/privapp-permissions-wfd.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-wfd.xml
+
 PRODUCT_PACKAGES += \
-    libdisplayconfig \
-    libdisplayconfig.vendor \
-    libnl \
-    libqdMetaData \
-    libqdMetaData.system
+    libnl
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-wfd.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-wfd.xml
 
-# WFD
-PRODUCT_PACKAGES += \
-    libaacwrapper \
-    libnl
-
 PRODUCT_BOOT_JARS += \
     WfdCommon
+    
+# WiFi Tethering
+PRODUCT_PACKAGES += \
+    android.hardware.tetheroffload.config@1.0
