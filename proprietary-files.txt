@@ -1,6 +1,8 @@
 # ANT
 system_ext/lib/com.qualcomm.qti.ant@1.0.so
 system_ext/lib64/com.qualcomm.qti.ant@1.0.so
+lib/libantradio.so
+lib64/libantradio.so
 
 # Alarm
 -system_ext/framework/vendor.qti.hardware.alarm-V1.0-java.jar
