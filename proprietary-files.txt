@@ -211,61 +211,41 @@ system_ext/etc/permissions/qti_libpermissions.xml
 system_ext/etc/permissions/qti_permissions.xml
 
 # Radio
-etc/permissions/privapp-permissions-qti.xml
-etc/sysconfig/qti_whitelist.xml
+-system_ext/app/DeviceInfo/DeviceInfo.apk
+-system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
 -system_ext/app/datastatusnotification/datastatusnotification.apk
 -system_ext/app/embms/embms.apk
--system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
+-system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+system_ext/etc/permissions/telephony_system-ext_privapp-permissions-qti.xml
 system_ext/etc/permissions/embms.xml
 system_ext/etc/permissions/qcrilhook.xml
 system_ext/etc/permissions/telephonyservice.xml
--system_ext/framework/embmslibrary.jar
--system_ext/framework/qcrilhook.jar
--system_ext/framework/qti-telephony-common.jar
--system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+system_ext/framework/embmslibrary.jar
+system_ext/framework/qcrilhook.jar
 
-# Radio-IMS
+# Telephony - from smali edit: https://gist.github.com/PIPIPIG233666/72806386c8b93729ce7f2b2c263d8889
+system_ext/framework/qti-telephony-common.jar|7a3f1fa141520e83e58d4afc6eebfc4f38dc9f27
+
+# Radio - IMS
+-system_ext/app/imssettings/imssettings.apk
 system_ext/etc/permissions/com.qualcomm.qti.imscmservice-V2.0-java.xml
 system_ext/etc/permissions/com.qualcomm.qti.imscmservice-V2.1-java.xml
 system_ext/etc/permissions/com.qualcomm.qti.imscmservice-V2.2-java.xml
 system_ext/etc/permissions/com.qualcomm.qti.imscmservice.xml
--system_ext/framework/com.qualcomm.qti.imscmservice-V2.0-java.jar
--system_ext/framework/com.qualcomm.qti.imscmservice-V2.1-java.jar
--system_ext/framework/com.qualcomm.qti.imscmservice-V2.2-java.jar
--system_ext/framework/com.qualcomm.qti.uceservice-V2.0-java.jar
--system_ext/framework/com.qualcomm.qti.uceservice-V2.1-java.jar
--system_ext/framework/com.qualcomm.qti.uceservice-V2.2-java.jar
--system_ext/framework/vendor.qti.ims.callcapability-V1.0-java.jar
--system_ext/framework/vendor.qti.ims.callinfo-V1.0-java.jar
--system_ext/framework/vendor.qti.ims.factory-V1.0-java.jar
--system_ext/framework/vendor.qti.ims.factory-V1.1-java.jar
--system_ext/framework/vendor.qti.ims.rcsconfig-V1.0-java.jar
--system_ext/framework/vendor.qti.ims.rcsconfig-V1.1-java.jar
--system_ext/framework/vendor.qti.ims.rcsconfig-V2.0-java.jar
--system_ext/framework/vendor.qti.ims.rcsconfig-V2.1-java.jar
-system_ext/lib/com.qualcomm.qti.imscmservice@1.0.so
-system_ext/lib/com.qualcomm.qti.imscmservice@2.0.so
-system_ext/lib/com.qualcomm.qti.imscmservice@2.1.so
-system_ext/lib/com.qualcomm.qti.imscmservice@2.2.so
-system_ext/lib/com.qualcomm.qti.uceservice@2.0.so
-system_ext/lib/com.qualcomm.qti.uceservice@2.1.so
-system_ext/lib/com.qualcomm.qti.uceservice@2.2.so
-system_ext/lib/lib-imsvideocodec.so
-system_ext/lib/lib-imsvt.so
-system_ext/lib/lib-imsvtextutils.so
-system_ext/lib/lib-imsvtutils.so
-system_ext/lib/libdiag_system.so
-system_ext/lib/libimscamera_jni.so
-system_ext/lib/libimsmedia_jni.so
-system_ext/lib/vendor.qti.ims.callcapability@1.0.so
-system_ext/lib/vendor.qti.ims.callinfo@1.0.so
-system_ext/lib/vendor.qti.ims.factory@1.0.so
-system_ext/lib/vendor.qti.ims.factory@1.1.so
-system_ext/lib/vendor.qti.ims.rcsconfig@1.0.so
-system_ext/lib/vendor.qti.ims.rcsconfig@1.1.so
-system_ext/lib/vendor.qti.ims.rcsconfig@2.0.so
-system_ext/lib/vendor.qti.ims.rcsconfig@2.1.so
-system_ext/lib/vendor.qti.imsrtpservice@3.0.so
+system_ext/framework/com.qualcomm.qti.imscmservice-V2.0-java.jar
+system_ext/framework/com.qualcomm.qti.imscmservice-V2.1-java.jar
+system_ext/framework/com.qualcomm.qti.imscmservice-V2.2-java.jar
+system_ext/framework/com.qualcomm.qti.uceservice-V2.0-java.jar
+system_ext/framework/com.qualcomm.qti.uceservice-V2.1-java.jar
+system_ext/framework/com.qualcomm.qti.uceservice-V2.2-java.jar
+system_ext/framework/vendor.qti.ims.callcapability-V1.0-java.jar
+system_ext/framework/vendor.qti.ims.callinfo-V1.0-java.jar
+system_ext/framework/vendor.qti.ims.factory-V1.0-java.jar
+system_ext/framework/vendor.qti.ims.factory-V1.1-java.jar
+system_ext/framework/vendor.qti.ims.rcsconfig-V1.0-java.jar
+system_ext/framework/vendor.qti.ims.rcsconfig-V1.1-java.jar
+system_ext/framework/vendor.qti.ims.rcsconfig-V2.0-java.jar
+system_ext/framework/vendor.qti.ims.rcsconfig-V2.1-java.jar
 system_ext/lib64/com.qualcomm.qti.imscmservice@1.0.so
 system_ext/lib64/com.qualcomm.qti.imscmservice@2.0.so
 system_ext/lib64/com.qualcomm.qti.imscmservice@2.1.so
@@ -300,6 +280,9 @@ system_ext/lib64/vendor.qti.hardware.scve.objecttracker@1.0-adapter-helper.so
 system_ext/lib64/vendor.qti.hardware.scve.objecttracker@1.0.so
 system_ext/lib64/vendor.qti.hardware.scve.panorama@1.0-adapter-helper.so
 system_ext/lib64/vendor.qti.hardware.scve.panorama@1.0.so
+
+# Soter Service
+-app/SoterService/SoterService.apk
 
 # WFD
 -framework/WfdCommon.jar
@@ -382,7 +365,6 @@ lib64/vendor.xiaomi.hardware.vibratorfeature@1.0.so
 -system_ext/app/com.qualcomm.qti.services.secureui/com.qualcomm.qti.services.secureui.apk
 -system_ext/app/com.qualcomm.qti.services.systemhelper/com.qualcomm.qti.services.systemhelper.apk
 -system_ext/app/ConfURIDialer/ConfURIDialer.apk
--system_ext/app/DeviceInfo/DeviceInfo.apk
 -system_ext/app/DeviceStatisticsService/DeviceStatisticsService.apk
 -system_ext/app/DynamicDDSService/DynamicDDSService.apk
 -system_ext/app/PerformanceMode/PerformanceMode.apk
