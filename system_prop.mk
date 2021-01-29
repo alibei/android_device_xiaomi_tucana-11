@@ -89,25 +89,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
-    DEVICE_PROVISIONED=1 \
-    rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
-    ril.subscription.types=RUIM \
+    persist.radio.multisim.config=dsds \
+    persist.vendor.radio.apm_sim_not_pwdn=1 \
+    persist.vendor.radio.custom_ecc=1 \
+    persist.vendor.radio.data_con_rprt=1 \
+    persist.vendor.radio.data_ltd_sys_ind=1 \
+    persist.vendor.radio.force_ltd_sys_ind=1 \
+    persist.vendor.radio.manual_nw_rej_ct=1 \
+    persist.vendor.radio.mt_sms_ack=30 \
+    persist.vendor.radio.procedure_bytes=SKIP \
+    persist.vendor.radio.rat_on=combine \
+    persist.vendor.radio.redir_party_num=1 \
+    persist.vendor.radio.sib16_support=1 \
     ro.telephony.default_cdma_sub=0 \
     ro.telephony.default_network=22,22 \
-    persist.dbg.volte_avail_ovr=1 \
-    persist.dbg.vt_avail_ovr=1 \
-    persist.dbg.wfc_avail_ovr=1 \
-    persist.radio.NO_STAPA=1 \
-    persist.radio.VT_HYBRID_ENABLE=1 \
-    persist.vendor.data.iwlan.enable=true \
-    persist.vendor.ims.disableADBLogs=1 \
-    persist.vendor.ims.disableIMSLogs=1 \
-    persist.vendor.radio.enable_temp_dds=true \
-    persist.vendor.radio.force_on_dc=true \
-    persist.vendor.radio.redir_party_num=1 \
-    persist.vendor.radio.report_codec=1 \
     telephony.lteOnCdmaDevice=1
-    
+
 # RCS
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.rcs.supported=1
