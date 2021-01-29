@@ -111,11 +111,6 @@ PRODUCT_COPY_FILES += \
 
 TARGET_HAS_FOD := true
 
-# FIXME: master: compat for libprotobuf
-# See https://android-review.googlesource.com/c/platform/prebuilts/vndk/v28/+/1109518
-PRODUCT_PACKAGES += \
-    libprotobuf-cpp-full-vendorcompat
-
 # FM
 PRODUCT_PACKAGES += \
     FM2 \
@@ -145,6 +140,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     org.ifaa.android.manager
 
+# IMS
+PRODUCT_PACKAGES += \
+    com.android.ims.rcsmanager \
+    PresencePolling \
+    RcsService
+
 # Init
 PRODUCT_PACKAGES += \
     init.mi_thermald.rc \
@@ -155,7 +156,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     $(LOCAL_PATH)/keylayout/sm8150-tavil-snd-card_Button_Jack.kl:system/usr/keylayout/sm8150-tavil-snd-card_Button_Jack.kl
-    
+
 # IR
 PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-impl \
@@ -198,7 +199,6 @@ PRODUCT_PACKAGES += \
 
 # Permissions
 PRODUCT_COPY_FILES += \
-   frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.telephony.ims.xml \
    frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/handheld_core_hardware.xml
 
 # Power
@@ -208,10 +208,6 @@ PRODUCT_PACKAGES += \
 # Properties
 -include $(LOCAL_PATH)/system_prop.mk
 -include $(LOCAL_PATH)/product_prop.mk
-    
-# Ril
-PRODUCT_PACKAGES += \
-    android.hardware.radio@1.4
     
 # Sensor Configuration
 PRODUCT_COPY_FILES += \
@@ -240,11 +236,18 @@ PRODUCT_PACKAGES += \
     qti_telephony_utils.xml \
     telephony-ext
 
+PRODUCT_PACKAGES += \
+    CellBroadcastReceiver \
+    android.hardware.radio@1.5 \
+    android.hardware.radio.config@1.1 \
+    android.hardware.radio.deprecated@1.0 \
+    android.hardware.secure_element@1.1 \
+    libjson \
+    libprotobuf-cpp-full \
+    libxml2
+
 PRODUCT_BOOT_JARS += \
     telephony-ext
-    
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/permissions/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-qti.xml
     
 # Thermal
 PRODUCT_PACKAGES += \
