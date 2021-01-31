@@ -210,6 +210,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.power@1.2-service.tucana
 
+# Prebuilt Packages
+PRODUCT_PACKAGES += \
+    Via \
+    GalleryGo \
+    GCamGo
+
 # Properties
 -include $(LOCAL_PATH)/system_prop.mk
 -include $(LOCAL_PATH)/product_prop.mk
