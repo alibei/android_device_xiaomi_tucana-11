@@ -253,14 +253,18 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     telephony-ext
-    
-# Thermal
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0
 
 # TextClassifier
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
+
+# Thermal
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@2.0
+
+# Trust HAL
+PRODUCT_PACKAGES += \
+    vendor.lineage.trust@1.0-service
 
 # Vendor Overlays
 PRODUCT_PACKAGES += \
