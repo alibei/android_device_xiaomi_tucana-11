@@ -35,6 +35,7 @@ vendor/lib64/soundfx/libvolumelistener.so:product/vendor_overlay/30/lib64/soundf
 
 # Bluetooth
 system_ext/bin/bt_logger
+system_ext/bin/dun-server
 system_ext/etc/bluetooth/bt_profile.conf
 system_ext/etc/bluetooth/interop_database.conf
 system_ext/lib/libbt-logClient.so
@@ -62,6 +63,8 @@ system_ext/etc/seccomp_policy/qvr@2.0.policy
 system_ext/lib/libcvpcpuRev_skel_system.so
 system_ext/lib/libcvp_common_system.so
 system_ext/lib/libeye_tracking_dsp_sample_stub.so
+system_ext/lib/libhoaeffects.qti.so
+system_ext/lib/libhoaeffects_csim.so
 system_ext/lib/libqvrcamera_client.qti.so
 system_ext/lib/libqvrservice.so
 system_ext/lib/libqvrservice_client.qti.so
@@ -80,6 +83,8 @@ system_ext/lib/vendor.qti.hardware.cvp@1.0.so
 system_ext/lib/vendor.qti.hardware.seccam@1.0.so
 system_ext/lib64/libcvpcpuRev_skel_system.so
 system_ext/lib64/libcvp_common_system.so
+system_ext/lib64/libhoaeffects.qti.so
+system_ext/lib64/libhoaeffects_csim.so
 system_ext/lib64/libqvrcamera_client.qti.so
 system_ext/lib64/libqvrservice_client.qti.so
 system_ext/lib64/libqvrservice_ov7251_hvx_tuning.so
@@ -113,6 +118,7 @@ product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml|620c9f
 -system_ext/framework/vendor.qti.hardware.data.dynamicdds-V1.0-java.jar
 -system_ext/framework/vendor.qti.hardware.data.iwlan-V1.0-java.jar
 -system_ext/framework/vendor.qti.hardware.data.qmi-V1.0-java.jar
+-system_ext/framework/vendor.qti.hardware.slmadapter-V1.0-java.jar
 system_ext/lib/com.quicinc.cne.api@1.0.so
 system_ext/lib/com.quicinc.cne.api@1.1.so
 system_ext/lib/com.quicinc.cne.constants@1.0.so
@@ -130,6 +136,7 @@ system_ext/lib/vendor.qti.hardware.data.connection@1.1.so
 system_ext/lib/vendor.qti.hardware.data.dynamicdds@1.0.so
 system_ext/lib/vendor.qti.hardware.data.iwlan@1.0.so
 system_ext/lib/vendor.qti.hardware.data.qmi@1.0.so
+system_ext/lib/vendor.qti.hardware.slmadapter@1.0.so
 system_ext/lib64/com.quicinc.cne.api@1.0.so
 system_ext/lib64/com.quicinc.cne.api@1.1.so
 system_ext/lib64/com.quicinc.cne.constants@1.0.so
@@ -147,18 +154,21 @@ system_ext/lib64/vendor.qti.hardware.data.connection@1.1.so
 system_ext/lib64/vendor.qti.hardware.data.dynamicdds@1.0.so
 system_ext/lib64/vendor.qti.hardware.data.iwlan@1.0.so
 system_ext/lib64/vendor.qti.hardware.data.qmi@1.0.so
+system_ext/lib64/vendor.qti.hardware.slmadapter@1.0.so
 
 # Configstore
 -system_ext/framework/vendor.qti.hardware.capabilityconfigstore-V1.0-java.jar
 
-# Diag
-system_ext/lib/libdiag_system.so
-system_ext/lib64/libdiag_system.so
+# Device
+-system_ext/app/DeviceInfo/DeviceInfo.apk
+-system_ext/app/DeviceStatisticsService/DeviceStatisticsService.apk
 
 # Display
 product/etc/permissions/com.qti.snapdragon.sdk.display.xml
 -product/framework/com.qti.snapdragon.sdk.display.jar
+-system_ext/app/QColor/QColor.apk
 -system_ext/app/colorservice/colorservice.apk
+system_ext/lib/liblayerext.qti.so
 system_ext/lib/libOpenCL_system.so
 system_ext/lib/libsd_sdk_display.qti.so
 system_ext/lib/libsdm-disp-apis.qti.so
@@ -169,6 +179,7 @@ system_ext/lib/vendor.display.color@1.2.so
 system_ext/lib/vendor.display.color@1.3.so
 system_ext/lib/vendor.display.postproc@1.0.so
 system_ext/lib/vendor.qti.hardware.qdutils_disp@1.0.so
+system_ext/lib64/liblayerext.qti.so
 system_ext/lib64/libOpenCL_system.so
 system_ext/lib64/libsd_sdk_display.qti.so
 system_ext/lib64/libsdm-disp-apis.qti.so
@@ -194,13 +205,11 @@ system_ext/lib/libdpmctmgr.so
 system_ext/lib/libdpmfdmgr.so
 system_ext/lib/libdpmframework.so
 system_ext/lib/libdpmtcm.so
-system_ext/lib/vendor.qti.diaghal@1.0.so
 system_ext/lib64/com.qualcomm.qti.dpm.api@1.0.so
 system_ext/lib64/libdpmctmgr.so
 system_ext/lib64/libdpmfdmgr.so
 system_ext/lib64/libdpmframework.so
 system_ext/lib64/libdpmtcm.so
-system_ext/lib64/vendor.qti.diaghal@1.0.so
 -system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk
 
 # DRM
@@ -235,6 +244,53 @@ system_ext/lib64/vendor.qti.hardware.scve.objecttracker@1.0-adapter-helper.so
 system_ext/lib64/vendor.qti.hardware.scve.objecttracker@1.0.so
 system_ext/lib64/vendor.qti.hardware.scve.panorama@1.0-adapter-helper.so
 system_ext/lib64/vendor.qti.hardware.scve.panorama@1.0.so
+
+# FM
+system_ext/lib64/fm_helium.so
+system_ext/lib64/libfm-hci.so
+system_ext/lib/fm_helium.so
+system_ext/lib/libfm-hci.so
+system_ext/lib64/vendor.qti.hardware.fm@1.0.so
+system_ext/lib/vendor.qti.hardware.fm@1.0.so
+
+# GPS
+system_ext/bin/qccsyshalservice
+system_ext/etc/init/vendor.qti.hardware.qccsyshal@1.0-service.rc
+system_ext/etc/permissions/com.qti.location.sdk.xml
+system_ext/etc/permissions/com.qualcomm.location.xml
+system_ext/etc/permissions/com.qualcomm.qti.izattools.xml
+system_ext/etc/permissions/izat.xt.srv.xml
+system_ext/etc/permissions/privapp-permissions-com.beyondGnssService.location.xml
+system_ext/etc/permissions/privapp-permissions-com.qualcomm.location.xml
+-system_ext/framework/com.qti.location.sdk.jar
+-system_ext/framework/izat.xt.srv.jar
+system_ext/lib/libjnihelpers.so
+system_ext/lib/libqcc.so
+system_ext/lib/libqcc_file_agent_sys.so
+system_ext/lib/vendor.qti.gnss@1.0.so
+system_ext/lib/vendor.qti.gnss@1.1.so
+system_ext/lib/vendor.qti.gnss@1.2.so
+system_ext/lib/vendor.qti.gnss@2.0.so
+system_ext/lib/vendor.qti.gnss@2.1.so
+system_ext/lib/vendor.qti.gnss@3.0.so
+system_ext/lib/vendor.qti.gnss@4.0.so
+system_ext/lib/vendor.qti.hardware.qccsyshal@1.0-halimpl.so
+system_ext/lib/vendor.qti.hardware.qccsyshal@1.0.so
+system_ext/lib/vendor.qti.hardware.qccvndhal@1.0.so
+system_ext/lib64/libjnihelpers.so
+system_ext/lib64/libqcc.so
+system_ext/lib64/libqcc_file_agent_sys.so
+system_ext/lib64/vendor.qti.gnss@1.0.so
+system_ext/lib64/vendor.qti.gnss@1.1.so
+system_ext/lib64/vendor.qti.gnss@1.2.so
+system_ext/lib64/vendor.qti.gnss@2.0.so
+system_ext/lib64/vendor.qti.gnss@2.1.so
+system_ext/lib64/vendor.qti.gnss@3.0.so
+system_ext/lib64/vendor.qti.gnss@4.0.so
+system_ext/lib64/vendor.qti.hardware.qccsyshal@1.0-halimpl.so
+system_ext/lib64/vendor.qti.hardware.qccsyshal@1.0.so
+system_ext/lib64/vendor.qti.hardware.qccvndhal@1.0.so
+-system_ext/priv-app/beyondGnssService/beyondGnssService.apk
 
 # IMS
 -system_ext/app/imssettings/imssettings.apk
@@ -291,6 +347,12 @@ system_ext/lib64/lib-imsvtextutils.so
 system_ext/lib64/lib-imsvtutils.so
 system_ext/lib64/libimscamera_jni.so
 system_ext/lib64/libimsmedia_jni.so
+system_ext/lib64/libmmhttpstack.so
+system_ext/lib64/libmmiipstreammmihttp.so
+system_ext/lib64/libmmipstreamnetwork.so
+system_ext/lib64/libmmipstreamsourcehttp.so
+system_ext/lib64/libmmipstreamutils.so
+system_ext/lib64/libmmQSM.so
 system_ext/lib64/vendor.qti.ims.callcapability@1.0.so
 system_ext/lib64/vendor.qti.ims.callinfo@1.0.so
 system_ext/lib64/vendor.qti.ims.factory@1.0.so
@@ -301,50 +363,6 @@ system_ext/lib64/vendor.qti.ims.rcsconfig@2.0.so
 system_ext/lib64/vendor.qti.ims.rcsconfig@2.1.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
 -system_ext/priv-app/ims/ims.apk
-
-# FM
-system_ext/lib64/fm_helium.so
-system_ext/lib64/libfm-hci.so
-system_ext/lib/fm_helium.so
-system_ext/lib/libfm-hci.so
-system_ext/lib64/vendor.qti.hardware.fm@1.0.so
-system_ext/lib/vendor.qti.hardware.fm@1.0.so
-
-# GPS
-system_ext/bin/qccsyshalservice
-system_ext/etc/init/vendor.qti.hardware.qccsyshal@1.0-service.rc
-system_ext/etc/permissions/com.qti.location.sdk.xml
-system_ext/etc/permissions/com.qualcomm.location.xml
-system_ext/etc/permissions/com.qualcomm.qti.izattools.xml
-system_ext/etc/permissions/izat.xt.srv.xml
-system_ext/etc/permissions/privapp-permissions-com.beyondGnssService.location.xml
-system_ext/etc/permissions/privapp-permissions-com.qualcomm.location.xml
--system_ext/framework/com.qti.location.sdk.jar
--system_ext/framework/izat.xt.srv.jar
-system_ext/lib/libqcc.so
-system_ext/lib/libqcc_file_agent_sys.so
-system_ext/lib/vendor.qti.gnss@1.0.so
-system_ext/lib/vendor.qti.gnss@1.1.so
-system_ext/lib/vendor.qti.gnss@1.2.so
-system_ext/lib/vendor.qti.gnss@2.0.so
-system_ext/lib/vendor.qti.gnss@2.1.so
-system_ext/lib/vendor.qti.gnss@3.0.so
-system_ext/lib/vendor.qti.gnss@4.0.so
-system_ext/lib/vendor.qti.hardware.qccsyshal@1.0-halimpl.so
-system_ext/lib/vendor.qti.hardware.qccsyshal@1.0.so
-system_ext/lib/vendor.qti.hardware.qccvndhal@1.0.so
-system_ext/lib64/libqcc.so
-system_ext/lib64/libqcc_file_agent_sys.so
-system_ext/lib64/vendor.qti.gnss@1.0.so
-system_ext/lib64/vendor.qti.gnss@1.1.so
-system_ext/lib64/vendor.qti.gnss@1.2.so
-system_ext/lib64/vendor.qti.gnss@2.0.so
-system_ext/lib64/vendor.qti.gnss@2.1.so
-system_ext/lib64/vendor.qti.gnss@3.0.so
-system_ext/lib64/vendor.qti.gnss@4.0.so
-system_ext/lib64/vendor.qti.hardware.qccsyshal@1.0-halimpl.so
-system_ext/lib64/vendor.qti.hardware.qccsyshal@1.0.so
-system_ext/lib64/vendor.qti.hardware.qccvndhal@1.0.so
 
 # Init scripts
 system_ext/etc/init/init.qti.bt.logger.rc
@@ -426,17 +444,25 @@ system_ext/lib64/libmmrtpencoder.so
 system_ext/lib64/vendor.qti.hardware.vpp@1.1.so
 
 # Perf
+-system_ext/app/PerformanceMode/PerformanceMode.apk
+-system_ext/app/workloadclassifier/workloadclassifier.apk
 system_ext/bin/perfservice
 system_ext/etc/init/perfservice.rc
 system_ext/etc/perf/wlc_model.tflite
 system_ext/etc/seccomp_policy/perfservice.policy
+system_ext/lib/libdolphin.so
+system_ext/lib/libqti-at.so
 system_ext/lib/libqti-perfd-client_system.so
 system_ext/lib/libqti-util_system.so
 system_ext/lib/libqti_performance.so
+system_ext/lib/libqti_workloadclassifiermodel.so
 system_ext/lib/vendor.qti.hardware.perf@2.0.so
+system_ext/lib64/libdolphin.so
+system_ext/lib64/libqti-at.so
 system_ext/lib64/libqti-perfd-client_system.so
 system_ext/lib64/libqti-util_system.so
 system_ext/lib64/libqti_performance.so
+system_ext/lib64/libqti_workloadclassifiermodel.so
 system_ext/lib64/vendor.qti.hardware.perf@2.0.so
 
 # Perf IOP
@@ -449,29 +475,41 @@ system_ext/lib64/vendor.qti.hardware.iop@2.0.so
 system_ext/bin/qspmsvc
 system_ext/etc/init/qspmsvc.rc
 system_ext/lib/libqspmsvc.so
+system_ext/lib/libupdateprof.qti.so
 system_ext/lib/vendor.qti.qspmhal@1.0.so
 system_ext/lib64/libqspmsvc.so
+system_ext/lib64/libupdateprof.qti.so
 system_ext/lib64/vendor.qti.qspmhal@1.0.so
 
 # Telephony
 etc/permissions/privapp-permissions-qti.xml
 etc/sysconfig/qti_whitelist.xml
+-system_ext/app/QTIDiagServices/QTIDiagServices.apk
+system_ext/bin/diag_callback_sample_system
+system_ext/bin/diag_dci_sample_system
+system_ext/bin/test_diag_system
 system_ext/etc/permissions/qti_libpermissions.xml
 system_ext/etc/permissions/qti_permissions.xml
+system_ext/etc/spn-conf.xml
 -system_ext/app/atfwd/atfwd.apk
 -system_ext/app/datastatusnotification/datastatusnotification.apk
--system_ext/app/DeviceInfo/DeviceInfo.apk
+-system_ext/app/DynamicDDSService/DynamicDDSService.apk
 -system_ext/app/embms/embms.apk
+-system_ext/app/QdcmFF/QdcmFF.apk
+-system_ext/app/QtiSystemService/QtiSystemService.apk
 -system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
 -system_ext/app/remoteSimLockAuthentication/remoteSimLockAuthentication.apk
 -system_ext/app/remotesimlockservice/remotesimlockservice.apk
+-system_ext/app/SimContact/SimContact.apk
 -system_ext/app/uimgbaservice/uimgbaservice.apk
 -system_ext/app/uimlpaservice/uimlpaservice.apk
 -system_ext/app/uimremoteclient/uimremoteclient.apk
 -system_ext/app/uimremoteserver/uimremoteserver.apk
 -system_ext/app/xdivert/xdivert.apk
+system_ext/etc/cdma_call_conf.xml
 system_ext/etc/permissions/embms-noship_product_privapp_permissions_qti.xml
 system_ext/etc/permissions/embms.xml
+system_ext/etc/permissions/lpa.xml
 system_ext/etc/permissions/qcrilhook.xml
 system_ext/etc/permissions/RemoteSimlock.xml
 system_ext/etc/permissions/RemoteSimlockManager.xml
@@ -494,6 +532,11 @@ system_ext/etc/permissions/UimService.xml
 -system_ext/framework/uimremoteserverlibrary.jar
 -system_ext/framework/uimremotesimlocklibrary.jar
 -system_ext/framework/uimservicelibrary.jar
+system_ext/lib/libdiag_system.so
+system_ext/lib/libDiagService.so
+system_ext/lib/libqmi_cci_system.so
+system_ext/lib/libqmi_encdec_system.so
+system_ext/lib/vendor.qti.diaghal@1.0.so
 system_ext/lib/vendor.qti.hardware.radio.am@1.0.so
 system_ext/lib/vendor.qti.hardware.radio.ims@1.0.so
 system_ext/lib/vendor.qti.hardware.radio.ims@1.1.so
@@ -518,10 +561,15 @@ system_ext/lib/vendor.qti.hardware.radio.uim_remote_client@1.0.so
 system_ext/lib/vendor.qti.hardware.radio.uim_remote_client@1.1.so
 system_ext/lib/vendor.qti.hardware.radio.uim_remote_client@1.2.so
 system_ext/lib/vendor.qti.hardware.radio.uim_remote_server@1.0.so
+system_ext/lib64/libdiag_system.so
+system_ext/lib64/libDiagService.so
 system_ext/lib64/libembmsmmosal.so
 system_ext/lib64/libembmsmmparser_lite.so
 system_ext/lib64/libembmssqlite.so
 system_ext/lib64/libembmstinyxml.so
+system_ext/lib64/libqmi_cci_system.so
+system_ext/lib64/vendor.qti.diaghal@1.0.so
+system_ext/lib64/libqmi_encdec_system.so
 system_ext/lib64/vendor.qti.hardware.radio.am@1.0.so
 system_ext/lib64/vendor.qti.hardware.radio.ims@1.0.so
 system_ext/lib64/vendor.qti.hardware.radio.ims@1.1.so
@@ -546,7 +594,11 @@ system_ext/lib64/vendor.qti.hardware.radio.uim_remote_client@1.0.so
 system_ext/lib64/vendor.qti.hardware.radio.uim_remote_client@1.1.so
 system_ext/lib64/vendor.qti.hardware.radio.uim_remote_client@1.2.so
 system_ext/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so
+-system_ext/priv-app/CarrierConfig/CarrierConfig.apk
+-system_ext/app/ConfURIDialer/ConfURIDialer.apk
+-system_ext/priv-app/CellBroadcastAppPlatform/CellBroadcastAppPlatform.apk
 -system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+-system_ext/app/WAPPushManager/WAPPushManager.apk
 
 # Telephony - from smali edit: https://gist.github.com/PIPIPIG233666/72806386c8b93729ce7f2b2c263d8889
 system_ext/framework/qti-telephony-common.jar|7a3f1fa141520e83e58d4afc6eebfc4f38dc9f27
@@ -592,6 +644,8 @@ system_ext/lib64/vendor.qti.hardware.wigig.supptunnel@1.0.so
 
 # WiFi Display
 -framework/WfdCommon.jar
+system_ext/bin/rtspclient
+system_ext/bin/rtspserver
 system_ext/bin/sigma_miracasthalservice
 system_ext/bin/wfdservice
 system_ext/etc/init/com.qualcomm.qti.sigma_miracast@1.0-service.rc
@@ -675,93 +729,31 @@ lib64/vendor.xiaomi.hardware.misys@1.0.so
 lib64/vendor.xiaomi.hardware.misys@2.0.so
 lib64/vendor.xiaomi.hardware.misys@3.0.so
 lib64/vendor.xiaomi.hardware.vibratorfeature@1.0.so
+system_ext/etc/permissions/privapp-permissions-miui-settings.xml
 system_ext/lib/vendor.xiaomi.hardware.fingerprintextension@1.0.so
 system_ext/lib64/vendor.xiaomi.hardware.fingerprintextension@1.0.so
 
 # Misc
--system_ext/app/ConfURIDialer/ConfURIDialer.apk
--system_ext/app/DeviceStatisticsService/DeviceStatisticsService.apk
--system_ext/app/DynamicDDSService/DynamicDDSService.apk
--system_ext/app/PerformanceMode/PerformanceMode.apk
--system_ext/app/QColor/QColor.apk
--system_ext/app/QdcmFF/QdcmFF.apk
--system_ext/app/QTIDiagServices/QTIDiagServices.apk
--system_ext/app/QtiSystemService/QtiSystemService.apk
--system_ext/app/SimContact/SimContact.apk
--system_ext/app/WAPPushManager/WAPPushManager.apk
--system_ext/app/workloadclassifier/workloadclassifier.apk
-system_ext/bin/diag_callback_sample_system
-system_ext/bin/diag_dci_sample_system
-system_ext/bin/dun-server
-system_ext/bin/rtspclient
-system_ext/bin/rtspserver
-system_ext/bin/test_diag_system
-system_ext/etc/cdma_call_conf.xml
 system_ext/etc/permissions/com.qualcomm.qmapbridge.xml
-system_ext/etc/permissions/lpa.xml
-system_ext/etc/permissions/privapp-permissions-miui-settings.xml
-system_ext/etc/spn-conf.xml
 -system_ext/framework/ActivityExt.jar
 -system_ext/framework/qmapbridge.jar
--system_ext/framework/vendor.qti.hardware.slmadapter-V1.0-java.jar
 system_ext/lib/libbinauralrenderer_wrapper.qti.so
-system_ext/lib/libDiagService.so
-system_ext/lib/libdolphin.so
 system_ext/lib/libframeextension.so
-system_ext/lib/libhoaeffects.qti.so
-system_ext/lib/libhoaeffects_csim.so
-system_ext/lib/libjnihelpers.so
-system_ext/lib/liblayerext.qti.so
 system_ext/lib/libmediasp_jni.so
 system_ext/lib/libmink-sock-native-api.so
 system_ext/lib/libminksocket_system.so
 system_ext/lib/liboemaids_system.so
-system_ext/lib/libqmi_cci_system.so
-system_ext/lib/libqmi_encdec_system.so
-system_ext/lib/libqti-at.so
-system_ext/lib/libqti_workloadclassifiermodel.so
 system_ext/lib/libScenescape.so
 system_ext/lib/libskewknob_system.so
 system_ext/lib/libtrigger-handler.so
-system_ext/lib/libupdateprof.qti.so
-system_ext/lib/vendor.qti.hardware.qccsyshal@1.0-halimpl.so
-system_ext/lib/vendor.qti.hardware.qccsyshal@1.0.so
-system_ext/lib/vendor.qti.hardware.qccvndhal@1.0.so
-system_ext/lib/vendor.qti.hardware.slmadapter@1.0.so
-system_ext/lib64/extractors/libmmparserextractor.so
 system_ext/lib64/libbinauralrenderer_wrapper.qti.so
 system_ext/lib64/libdashdatasource.so
 system_ext/lib64/libdashsamplesource.so
-system_ext/lib64/libDiagService.so
-system_ext/lib64/libdolphin.so
 system_ext/lib64/libframeextension.so
-system_ext/lib64/libhoaeffects.qti.so
-system_ext/lib64/libhoaeffects_csim.so
-system_ext/lib64/libjnihelpers.so
-system_ext/lib64/liblayerext.qti.so
 system_ext/lib64/libmediasp_jni.so
 system_ext/lib64/libmink-sock-native-api.so
 system_ext/lib64/libminksocket_system.so
-system_ext/lib64/libmmhttpstack.so
-system_ext/lib64/libmmiipstreammmihttp.so
-system_ext/lib64/libmmipstreamnetwork.so
-system_ext/lib64/libmmipstreamsourcehttp.so
-system_ext/lib64/libmmipstreamutils.so
-system_ext/lib64/libmmQSM.so
 system_ext/lib64/libmsp.so
 system_ext/lib64/liboemaids_system.so
-system_ext/lib64/libqmi_cci_system.so
-system_ext/lib64/libqmi_encdec_system.so
-system_ext/lib64/libqti-at.so
-system_ext/lib64/libqti_workloadclassifiermodel.so
 system_ext/lib64/libskewknob_system.so
 system_ext/lib64/libtrigger-handler.so
-system_ext/lib64/libupdateprof.qti.so
-system_ext/lib64/vendor.qti.hardware.qccsyshal@1.0-halimpl.so
-system_ext/lib64/vendor.qti.hardware.qccsyshal@1.0.so
-system_ext/lib64/vendor.qti.hardware.qccvndhal@1.0.so
-system_ext/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
-system_ext/lib64/vendor.qti.hardware.slmadapter@1.0.so
--system_ext/priv-app/beyondGnssService/beyondGnssService.apk
--system_ext/priv-app/CarrierConfig/CarrierConfig.apk
--system_ext/priv-app/CellBroadcastAppPlatform/CellBroadcastAppPlatform.apk
