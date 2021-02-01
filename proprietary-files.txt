@@ -30,8 +30,10 @@ system_ext/lib64/libcdsprpc_system.so
 system_ext/lib64/libmdsprpc_system.so
 system_ext/lib64/libsdsprpc_system.so
 system_ext/lib64/vendor.qti.hardware.dsp@1.0.so
-vendor/lib/soundfx/libvolumelistener.so:product/vendor_overlay/30/lib/soundfx/libvolumelistener.so
-vendor/lib64/soundfx/libvolumelistener.so:product/vendor_overlay/30/lib64/soundfx/libvolumelistener.so
+
+# Audio - from qssi RP1A.201005.001 2012102310
+vendor/lib/soundfx/libvolumelistener.so:product/vendor_overlay/30/lib/soundfx/libvolumelistener.so|49f2a081612d2cb6ac1e25ff8ec7b53e8af967d2
+vendor/lib64/soundfx/libvolumelistener.so:product/vendor_overlay/30/lib64/soundfx/libvolumelistener.so|8579213d55eef5ab9c352470af5babf3c880b7a7
 
 # Bluetooth
 system_ext/bin/bt_logger
