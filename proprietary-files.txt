@@ -166,7 +166,6 @@ system_ext/lib64/vendor.qti.hardware.slmadapter@1.0.so
 # Display
 product/etc/permissions/com.qti.snapdragon.sdk.display.xml
 -product/framework/com.qti.snapdragon.sdk.display.jar
--system_ext/app/QColor/QColor.apk
 -system_ext/app/colorservice/colorservice.apk
 system_ext/lib/liblayerext.qti.so
 system_ext/lib/libOpenCL_system.so
