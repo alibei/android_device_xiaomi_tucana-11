@@ -17,7 +17,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.camera.enableNCSService=TRUE \
     persist.vendor.camera.enableTOFInterface=TRUE \
     vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
-    camera.disable_zsl_mode=1
 
 # CNE and DPM
 PRODUCT_PROPERTY_OVERRIDES += \
