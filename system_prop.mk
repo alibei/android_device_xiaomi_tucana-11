@@ -18,6 +18,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.camera.enableTOFInterface=TRUE \
     vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
 
+# System property determining camera HAL to be used for a Video call
+# 1 is camera1
+# 2 or anything else is camera2
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.radio.VT_CAM_INTERFACE=1
+
 # CNE and DPM
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.cne.feature=1 \
@@ -29,6 +35,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapsize=36m \
     dev.pm.dyn_samplingrate=1
+
+# Data storage improvement
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.use_fifo_ui=1
 
 # Data Modules
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -74,9 +84,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
+    audio.deep_buffer.media=true \
+    media.stagefright.enable-player=true \
+    media.stagefright.enable-http=true \
+    media.stagefright.enable-aac=true \
+    media.stagefright.enable-qcp=true \
+    media.stagefright.enable-fma2dp=true \
+    media.stagefright.enable-scan=true \
     media.stagefright.thumbnail.prefer_hw_codecs=true \
-    media.settings.xml=/system/etc/media_profiles_vendor.xml \
-    vendor.mm.enable.qcom_parser=63963135
+    mmp.enable.3g2=true \
+    media.aac_51_output_enabled=true \
+    mm.enable.smoothstreaming=true \
+    media.settings.xml=/vendor/etc/media_profiles_vendor.xml \
+    vendor.mm.enable.qcom_parser=67108863
 
 # Memory optimizations
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -84,7 +104,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Netflix
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.netflix.bsp_rev=Q855-16947-1
+    ro.netflix.bsp_rev=Q6150-17263-1
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
