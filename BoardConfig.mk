@@ -175,12 +175,7 @@ PRODUCT_PUBLIC_SEPOLICY_DIRS += \
 
 PRODUCT_PRIVATE_SEPOLICY_DIRS += \
     device/qcom/sepolicy/generic/product/private \
-    device/qcom/sepolicy/qva/product/private    
-
-# Power
-TARGET_OVERLAYS_POWERHAL := true
-TARGET_USES_NON_LEGACY_POWER := true
-TARGET_TAP_TO_WAKE_NODE := "/dev/input/event4"
+    device/qcom/sepolicy/qva/product/private
 
 # Treble
 BUILD_WITHOUT_VENDOR := true
