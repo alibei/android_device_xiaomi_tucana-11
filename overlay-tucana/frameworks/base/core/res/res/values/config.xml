@@ -685,7 +685,7 @@
     <bool name="config_supportsInDisplayFingerprintGesture">true</bool>
     
     <!-- FOD Icon Dimming -->
-    <bool name="config_targetUsesInKernelDimming">false</bool>
+    <bool name="config_targetUsesInKernelDimming">true</bool>
 
     <!-- Enable face auth only when swiping security view -->
     <bool name="config_faceAuthOnlyOnSecurityView">true</bool>
