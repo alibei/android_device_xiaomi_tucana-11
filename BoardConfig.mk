@@ -165,7 +165,17 @@ BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
 
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
     device/qcom/sepolicy_vndr/generic/public \
-    device/qcom/sepolicy_vndr/qva/public
+    device/qcom/sepolicy_vndr/qva/public \
+    device/qcom/sepolicy/qva/public \
+    device/qcom/sepolicy/qva/public/attribute
+    
+PRODUCT_PUBLIC_SEPOLICY_DIRS += \
+    device/qcom/sepolicy/generic/product/public \
+    device/qcom/sepolicy/qva/product/public
+
+PRODUCT_PRIVATE_SEPOLICY_DIRS += \
+    device/qcom/sepolicy/generic/product/private \
+    device/qcom/sepolicy/qva/product/private    
 
 # Power
 TARGET_OVERLAYS_POWERHAL := true
