@@ -1,0 +1,14 @@
+[
+  {
+    "repository": "alibei/android_device_xiaomi_tucana-11",
+    "target_path": "device/xiaomi/tucana"
+  }
+  {
+    "repository": "alibei/android_vendor_xiaomi_tucana-11",
+    "target_path": "vendor/xiaomi/tucana"
+  }
+  {
+    "repository": "LineageOS/android_hardware_xiaomi",
+    "target_path": "hardware/xiaomi"
+  }
+]
