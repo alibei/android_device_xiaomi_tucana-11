@@ -1,0 +1,36 @@
+From 7387dd9d1aa9d5fcf8bf2b87196a5d6d24c770bf Mon Sep 17 00:00:00 2001
+From: alibei <sebastiankotzias83@gmail.com>
+Date: Wed, 3 Feb 2021 01:43:04 +0100
+Subject: [PATCH] Required patch for the FOD. Original commit:
+ https://review.arrowos.net/c/ArrowOS/android_frameworks_base/+/12708/4
+
+---
+ .../src/com/android/systemui/biometrics/FODCircleView.java   | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java b/packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java
+index db2ab659..f0508297 100644
+--- a/packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java
++++ b/packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java
+@@ -229,7 +229,8 @@ public class FODCircleView extends ImageView {
+         mParams.type = WindowManager.LayoutParams.TYPE_DISPLAY_OVERLAY;
+         mParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
+                 WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN |
+-                WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH;
++                WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH |
++                WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+         mParams.gravity = Gravity.TOP | Gravity.LEFT;
+ 
+         mPressedParams.copyFrom(mParams);
+@@ -238,6 +239,8 @@ public class FODCircleView extends ImageView {
+ 
+         mParams.setTitle("Fingerprint on display");
+         mPressedParams.setTitle("Fingerprint on display.touched");
++        
++        mParams.dimAmount = 0.0f;
+ 
+         mPressedView = new ImageView(context)  {
+             @Override
+-- 
+2.30.0
+
